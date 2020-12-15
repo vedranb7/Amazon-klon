@@ -1,0 +1,17 @@
+.blagajna {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+  height: max-content;
+}
+
+.blagajna__oglas {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.blagajna__naslov {
+  margin-right: 10px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}

@@ -2,15 +2,22 @@ import React from "react";
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import { Link } from "react-router-dom";
+import { useStateValue } from "./StateProvider";
 
 function Header() {
+  const [{ kosarica }, dispatch] = useStateValue();
+
   return (
     <div className="header">
-      <img
-        className="header__logo"
-        src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-        alt="logo"
-      />
+      <Link to="/">
+        <img
+          className="header__logo"
+          src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+          alt="logo"
+        />
+      </Link>
+
       <div className="header__pretraga">
         <input type="text" className="header__pretragaInput" />
         <SearchIcon className="header__pretragaIkona" />
@@ -28,10 +35,14 @@ function Header() {
           <span className="header__opcijaRedPrvi">Tvoj</span>
           <span className="header__opcijaRedDrugi">Prime</span>
         </div>
-        <div className="header__opcijaKosarica">
-          <ShoppingBasketIcon />
-          <span className="header__opcijaRedDrugi header__kosaricaBroj">0</span>
-        </div>
+        <Link to="/blagajna">
+          <div className="header__opcijaKosarica">
+            <ShoppingBasketIcon />
+            <span className="header__opcijaRedDrugi header__kosaricaBroj">
+              {kosarica?.length}
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   );

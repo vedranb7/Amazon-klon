@@ -32,7 +32,7 @@ function Naslovnica() {
         <div className="naslovnica__red">
           <Proizvod
             id="399399399"
-            naslov='Xiaomi Redmi Note 9S 6.67" 48MP International Global Version (Glacier White, 4GB/64GB)'
+            naslov='Xiaomi Redmi Note 9S 6.67" 48MP International Global Version (Glacier White, 4GB/64GB) Dual SIM GSM Unlocked 4G LTE'
             cijena={1899.99}
             slika="https://images-na.ssl-images-amazon.com/images/I/61L9nm4HvqL._AC_SL1200_.jpg"
             ocjena={4}
@@ -46,7 +46,7 @@ function Naslovnica() {
           />
           <Proizvod
             id="599599599"
-            naslov="iRobot 981 Roomba"
+            naslov="iRobot Roomba 675 Robot Vacuum-Wi-Fi Connectivity, Works with Alexa, Good for Pet Hair, Carpets, Hard Floors, Self-Charging"
             cijena={3999.99}
             slika="https://images-na.ssl-images-amazon.com/images/I/91irRh%2BK7qL._AC_SL1500_.jpg"
             ocjena={5}
