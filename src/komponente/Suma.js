@@ -2,6 +2,7 @@ import React from "react";
 import "./Suma.css";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "./StateProvider";
+import { getKosaricaSuma } from "./reducer";
 
 function Suma() {
   const [{ kosarica }, dispatch] = useStateValue();
@@ -10,9 +11,10 @@ function Suma() {
       <CurrencyFormat
         renderText={(value) => (
           <>
+            <p>Količina proizvoda: {kosarica.length}</p>
             <p>
-              Subtotal ({kosarica.length} items):
-              <strong>0</strong>
+              Ukupan iznos:
+              <strong>{value}</strong>
             </p>
             <small className="suma__poklon">
               <input type="checkbox" /> Ova narudžba sadrži poklon
@@ -20,10 +22,10 @@ function Suma() {
           </>
         )}
         decimalScale={2}
-        value={0}
+        value={getKosaricaSuma(kosarica)}
         displayType={"text"}
         thousandSeparator={true}
-        prefix={"kn"}
+        prefix={" kn "}
       />
 
       <button>Idi na plaćanje</button>

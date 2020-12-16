@@ -1,8 +1,11 @@
 import "./Blagajna.css";
 import React from "react";
 import Suma from "./Suma";
+import { useStateValue } from "./StateProvider";
+import BlagajnaProizvod from "./BlagajnaProizvod";
 
 function Blagajna() {
+  const [{ kosarica }, dispatch] = useStateValue();
   return (
     <div className="blagajna">
       <div className="blagajna__lijevo">
@@ -12,11 +15,16 @@ function Blagajna() {
           alt=""
         />
         <div>
-          <h2 className="blagajna__naslov">Tvoja košarica</h2>
-
-          {/* ITEM */}
-          {/* ITEM */}
-          {/* ITEM */}
+          <h2 className="blagajna__naslov">Vaša košarica</h2>
+          {kosarica.map((artikl) => (
+            <BlagajnaProizvod
+              id={artikl.id}
+              naslov={artikl.naslov}
+              slika={artikl.slika}
+              cijena={artikl.cijena}
+              ocjena={artikl.ocjena}
+            />
+          ))}
         </div>
       </div>
       <div className="blagajna__desno">

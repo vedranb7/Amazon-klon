@@ -28,7 +28,7 @@ function Proizvod({ id, naslov, slika, cijena, ocjena }) {
         <div className="proizvod__ocjena">
           {Array(ocjena)
             .fill()
-            .map((_) => (
+            .map(() => (
               <p>⭐</p>
             ))}
         </div>
