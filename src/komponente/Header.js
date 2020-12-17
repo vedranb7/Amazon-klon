@@ -23,10 +23,12 @@ function Header() {
         <SearchIcon className="header__pretragaIkona" />
       </div>
       <div className="header__nav">
-        <div className="header__opcija">
-          <span className="header__opcijaRedPrvi">Pozdrav</span>
-          <span className="header__opcijaRedDrugi">Prijavi se</span>
-        </div>
+        <Link to="/login">
+          <div className="header__opcija">
+            <span className="header__opcijaRedPrvi">Pozdrav</span>
+            <span className="header__opcijaRedDrugi">Prijavi se</span>
+          </div>
+        </Link>
         <div className="header__opcija">
           <span className="header__opcijaRedPrvi">Povrati</span>
           <span className="header__opcijaRedDrugi">& Narudžbe</span>
