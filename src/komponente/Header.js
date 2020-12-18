@@ -6,7 +6,13 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 
 function Header() {
-  const [{ kosarica }, dispatch] = useStateValue();
+  const [{ kosarica, korisnik }, dispatch] = useStateValue();
+
+  const handleAuthentication = () => {
+    if (korisnik) {
+      auth.signOut();
+    }
+  };
 
   return (
     <div className="header">
@@ -23,10 +29,13 @@ function Header() {
         <SearchIcon className="header__pretragaIkona" />
       </div>
       <div className="header__nav">
-        <Link to="/login">
-          <div className="header__opcija">
+        {/* Ako korisnik nije ulogiran, idi na login. Inače se odjavi i ostani na stranici */}
+        <Link to={!user && "/login"}>
+          <div onClick={handleAuthentication} className="header__opcija">
             <span className="header__opcijaRedPrvi">Pozdrav</span>
-            <span className="header__opcijaRedDrugi">Prijavi se</span>
+            <span className="header__opcijaRedDrugi">
+              {korisnik ? "Odjavi se" : "Prijavi se"}
+            </span>
           </div>
         </Link>
         <div className="header__opcija">

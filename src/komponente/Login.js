@@ -1,11 +1,37 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { auth } from "../firebase";
 import "./Login.css";
 
 function Login() {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [lozinka, setLozinka] = useState("");
-  const prijaviSe = (e) => {};
+  const prijava = (e) => {
+    e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(email, lozinka)
+      .then((auth) => {
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
+  };
+  const registracija = (e) => {
+    e.preventDefault();
+    auth
+      .createUserWithEmailAndPassword(email, lozinka)
+      .then((auth) => {
+        //uspješno napravljen novi korisnik
+        console.log(auth);
+        if (auth) {
+          history.push("/");
+        }
+      })
+      .catch((error) => alert(error.message));
+
+    //ovdje ide firebase registracija
+  };
   return (
     <div className="login">
       <Link to="/">
@@ -33,7 +59,7 @@ function Login() {
           <button
             className="login__prijavaButton"
             type="submit"
-            onClick={prijaviSe}
+            onClick={prijava}
           >
             Prijavi se
           </button>
@@ -42,7 +68,7 @@ function Login() {
           Prijavom se slažete sa Uvjetima i pravilima privatnosti i korištenja
           Lažnog Klona Amazon web stranice.
         </p>
-        <button className="login__registracijaButton">
+        <button className="login__registracijaButton" onClick={registracija}>
           Registriraj novi Amazon račun
         </button>
       </div>

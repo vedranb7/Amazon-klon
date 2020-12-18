@@ -1,5 +1,6 @@
 export const initialState = {
   kosarica: [],
+  korisnik: null,
 };
 
 // Selector
@@ -29,6 +30,9 @@ const reducer = (state, action) => {
       }
 
       return { ...state, kosarica: novaKosarica };
+
+    case "POSTAVI_KORISNIKA":
+      return { ...state, korisnik: action.korisnik };
     default:
       return state;
   }
