@@ -5,7 +5,7 @@ import { useStateValue } from "./StateProvider";
 import BlagajnaProizvod from "./BlagajnaProizvod";
 
 function Blagajna() {
-  const [{ kosarica }, dispatch] = useStateValue();
+  const [{ kosarica, korisnik }, dispatch] = useStateValue();
   return (
     <div className="blagajna">
       <div className="blagajna__lijevo">
@@ -15,6 +15,7 @@ function Blagajna() {
           alt=""
         />
         <div>
+          <h3>Pozdrav, {korisnik?.email}</h3>
           <h2 className="blagajna__naslov">Vaša košarica</h2>
           {kosarica.map((artikl) => (
             <BlagajnaProizvod

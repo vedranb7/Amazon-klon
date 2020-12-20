@@ -4,6 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
+import { auth } from "../firebase";
 
 function Header() {
   const [{ kosarica, korisnik }, dispatch] = useStateValue();
@@ -16,7 +17,7 @@ function Header() {
 
   return (
     <div className="header">
-      <Link to="/">
+      <Link path="/">
         <img
           className="header__logo"
           src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
@@ -30,7 +31,7 @@ function Header() {
       </div>
       <div className="header__nav">
         {/* Ako korisnik nije ulogiran, idi na login. Inače se odjavi i ostani na stranici */}
-        <Link to={!user && "/login"}>
+        <Link to={!korisnik && "/login"}>
           <div onClick={handleAuthentication} className="header__opcija">
             <span className="header__opcijaRedPrvi">Pozdrav</span>
             <span className="header__opcijaRedDrugi">
