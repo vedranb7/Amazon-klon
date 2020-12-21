@@ -1,5 +1,11 @@
 Cilj projekta: Funkcionalan Full-Stack Amazon klon u React-u.
 
+To-do:
+
+- Toast notifikacija kad se doda proizvod u košaricu ☑
+- Responzivnost za mobilne uređaje
+- Način za plaćanje
+
 ---
 
 # Getting Started with Create React App

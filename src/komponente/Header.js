@@ -7,7 +7,7 @@ import { useStateValue } from "./StateProvider";
 import { auth } from "../firebase";
 
 function Header() {
-  const [{ kosarica, korisnik }, dispatch] = useStateValue();
+  const [{ kosarica, korisnik }] = useStateValue();
 
   const handleAuthentication = () => {
     if (korisnik) {
@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <div className="header">
-      <Link path="/">
+      <Link to="/">
         <img
           className="header__logo"
           src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"

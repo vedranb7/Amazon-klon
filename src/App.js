@@ -1,12 +1,14 @@
 import "./App.css";
 import Header from "./komponente/Header";
 import Naslovnica from "./komponente/Naslovnica";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Blagajna from "./komponente/Blagajna";
 import Login from "./komponente/Login";
 import { auth } from "./firebase";
 import { useStateValue } from "./komponente/StateProvider";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -46,6 +48,7 @@ function App() {
             <Naslovnica />
           </Route>
         </Switch>
+        <ToastContainer />
       </div>
     </Router>
   );

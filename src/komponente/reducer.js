@@ -1,8 +1,14 @@
+import { toast } from "react-toastify";
+toast.configure();
+
 export const initialState = {
   kosarica: [],
   korisnik: null,
 };
 
+const notify = (prop) => {
+  toast(prop);
+};
 // Selector
 export const getKosaricaSuma = (kosarica) =>
   //reduce prolazi kroz sve artikle u kosarici i dodaje cijenu svakog u ukupan iznos, početni iznos 0
@@ -12,6 +18,12 @@ const reducer = (state, action) => {
   console.log(action);
   switch (action.type) {
     case "DODAJ_U_KOSARICU":
+      let naziv = action.item.naslov;
+      let skraceniNaziv =
+        naziv.length > 20
+          ? naziv
+          : naziv.substring(0, naziv.length - 3) + "...";
+      notify(`Dodali ste ${skraceniNaziv} u košaricu!`);
       return {
         ...state,
         kosarica: [...state.kosarica, action.item],

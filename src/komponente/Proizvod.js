@@ -4,6 +4,7 @@ import { useStateValue } from "./StateProvider";
 
 function Proizvod({ id, naslov, slika, cijena, ocjena }) {
   const [{ kosarica }, dispatch] = useStateValue();
+
   const dodajUKosaricu = () => {
     dispatch({
       type: "DODAJ_U_KOSARICU",
@@ -34,7 +35,13 @@ function Proizvod({ id, naslov, slika, cijena, ocjena }) {
         </div>
       </div>
       <img src={slika} alt="" />
-      <button onClick={dodajUKosaricu}>Dodaj u košaricu</button>
+      <button
+        onClick={() => {
+          dodajUKosaricu();
+        }}
+      >
+        Dodaj u košaricu
+      </button>
     </div>
   );
 }
