@@ -33,7 +33,9 @@ function Header() {
         {/* Ako korisnik nije ulogiran, idi na login. Inače se odjavi i ostani na stranici */}
         <Link to={!korisnik && "/login"}>
           <div onClick={handleAuthentication} className="header__opcija">
-            <span className="header__opcijaRedPrvi">Pozdrav</span>
+            <span className="header__opcijaRedPrvi">
+              Korisnik: {!korisnik ? "Gost" : korisnik.email}
+            </span>
             <span className="header__opcijaRedDrugi">
               {korisnik ? "Odjavi se" : "Prijavi se"}
             </span>

@@ -9,6 +9,7 @@ import { useStateValue } from "./komponente/StateProvider";
 import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Placanje from "./komponente/Placanje";
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -42,6 +43,10 @@ function App() {
           <Route path="/blagajna">
             <Header />
             <Blagajna />
+          </Route>
+          <Route path="/placanje">
+            <Header />
+            <Placanje />
           </Route>
           <Route path="/">
             <Header />

@@ -3,9 +3,12 @@ import "./Suma.css";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "./StateProvider";
 import { getKosaricaSuma } from "./reducer";
+import { useHistory } from "react-router-dom";
 
 function Suma() {
+  const history = useHistory();
   const [{ kosarica }, dispatch] = useStateValue();
+
   return (
     <div className="suma">
       <CurrencyFormat
@@ -28,7 +31,9 @@ function Suma() {
         prefix={" kn "}
       />
 
-      <button>Idi na plaćanje</button>
+      <button onClick={(e) => history.push("/placanje")}>
+        Idi na plaćanje
+      </button>
     </div>
   );
 }
